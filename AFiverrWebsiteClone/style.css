@@ -153,6 +153,7 @@ header .navbar {
     color:#fff;
     font-size: 1.7rem;
     cursor: pointer;
+    display: none;
 }
 
 .navbar #clos-menu-btn {
@@ -167,7 +168,15 @@ header .navbar {
 }
 
 @media screen and (max-width:900){
-    
+    header.show-mobile-menu::before {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+    }
     .navbar :is(#hamburger-btn,#close-menu-btn) {
       display: block;  
     }
@@ -175,7 +184,7 @@ header .navbar {
     background:#fff;
     height: 100vh;
     max-width: 300px;
-    width: 100%;
+    width: 300;
     position: fixed;
     left: -300px;
     top: 0;
@@ -185,7 +194,7 @@ header .navbar {
    }
 
    header.show-mobile-menu .navbar .menu-links {
-    left:-300px;
+    left:0px;
    }
    .navbar .menu-links li {
     margin-bottom: 30px;
